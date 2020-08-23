@@ -63,14 +63,17 @@ function game(selection) {
     playerScoreDisplay.textContent = playerScore;
     computerScoreDisplay.textContent = computerScore;
 
-    if (playerScore === 5 || computerScore == 5) {
-        const winnerText = playerScore == 5 ? 'Congratulations, you have won!' : 'Sorry, you lost the game, try again';
-        alert(winnerText);
-        playerScore = computerScore = 0;
-        playerScoreDisplay.textContent = 0;
-        computerScoreDisplay.textContent = 0;
-        gameTextDisplay.textContent = 'First to 5 wins!';
-    }
+    setTimeout(function() {
+        if (playerScore === 5 || computerScore == 5) {
+            const winnerText = playerScore == 5 ? 'Congratulations, you have won!' : 'Sorry, you lost the game, try again';
+            alert(winnerText);
+            playerScore = computerScore = 0;
+            playerScoreDisplay.textContent = 0;
+            computerScoreDisplay.textContent = 0;
+            gameTextDisplay.textContent = 'First to 5 wins!';
+        }    
+    }, 500);
+    
 }
 
 const rockButton = document.querySelector('#rock');
