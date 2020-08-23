@@ -2,59 +2,32 @@
 <html>
     <head>
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <script>
-            function computerPlay() {
-                const actions = ['Rock', 'Paper', 'Scissors'];
-                return actions[Math.floor(Math.random() * actions.length)];
-            }
-
-            function playRound(playerSelection, computerSelection) {
-                let ps = playerSelection.toLowerCase();
-                let cs = computerSelection.toLowerCase();
-
-                if (ps === 'rock') {
-                    if (cs === 'paper') {
-                        return 'You Lose! Paper beats Rock';
-                    } else if (cs === 'scissors') {
-                        return 'You Win! Rock beats Scissors';
-                    } 
-
-                    return 'Tie Game!';
-                } else if (ps === 'paper') {
-                    if (cs === 'rock') {
-                        return 'You Win! Paper beats Rock';
-                    } else if (cs === 'scissors') {
-                        return 'You Lose! Scissors beats Paper';
-                    } 
-
-                    return 'Tie Game!';
-                } else if (ps === 'scissors') {
-                    if (cs === 'rock') {
-                        return 'You Lose! Rock beats Scissors';
-                    } else if (cs === 'paper') {
-                        return 'You Win! Scissors beats Paper';
-                    }
-
-                    return 'Tie Game!';
-                }
-            }
-
-            function game() {
-                for (let count = 0; count < 5; ++count) {
-                    let playerSelection = prompt('Choose \'Rock\', \'Paper\', or \'Scissors\'');
-                    playerSelection = playerSelection.toLowerCase();
-                    if (playerSelection != 'rock' && playerSelection != 'paper' && playerSelection != 'scissors') {
-                        confirm('Invalid Selection');
-                        continue;
-                    }
-
-                    let computerSelection = computerPlay();
-                    let result = playRound(playerSelection, computerSelection);
-                    console.log(result);
-                }
-            }
-        </script>
+        <header>
+            <h1>Rock, Paper, Scisscors</h1>
+        </header>
+        <div id="container">
+            <div id="scores">
+                <div id="sheet">
+                    <div id="player-score">0</div>
+                    <div id="player">Player Score</div>
+                </div>
+                <div id="sheet">
+                    <div id="computer-score">0</div>
+                    <div id="computer">Computer Score</div>
+                </div>
+            </div>
+            <div id="game-text">
+                First to 5 wins!
+            </div>
+            <div id="choices">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+        </div>
+        <script src="game.js"></script>
     </body>
 </html>
